@@ -10,3 +10,13 @@ rawname.sort()
 import subprocess
 for r1, r2, out,in zip(r1files, r2files,rawname):
     subprocess.check_call(['spades.py', '--pe1-1', r1, '--pe1-2', r2, '-o', out])
+print '#######################################################################'
+print 'Want to quickly move all assemblies to a single file? Run automove.py!'
+print 'Available at https://github.com/stevenjdunn/automove'
+print '#######################################################################'
+print ''
+print 'www.stevendunn.co.uk'
+print ''
+print '#############'
+print 'Job Finished!'
+print '#############'
