@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 directory = raw_input("Path to directory containing FastQ reads: ")
 import os
 import glob
