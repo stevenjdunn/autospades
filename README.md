@@ -23,4 +23,7 @@ gedit ~/.bashrc
  
 alias autospades.py='/home/user/scripts/autospades.py'
 
+The output of this script can be quickly processed to include all assemblies in a single directory with logical filenames - simply run automove.py, available at: https://github.com/stevenjdunn/automove
+
+
 If you have any questions, please visit my website www.stevendunn.co.uk
