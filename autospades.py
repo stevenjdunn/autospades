@@ -16,7 +16,7 @@ if not os.path.exists(outputpath):
     os.makedirs(outputpath)
 gzip = list(glob.glob(os.path.join(directory, '*.gz')))
 for gz, in zip(gzip):
-    subprocess.check_call(['gunzip', gz])
+    subprocess.call(['gunzip', gz])
     subprocess.call(['rm', '*.gz'])
 r1files = list(glob.glob(os.path.join(directory,'*R1*.fastq')))
 r1files.sort()
@@ -41,7 +41,7 @@ yes = set(['yes','y','ye'])
 no = set(['no','n',''])
 if choice in yes:
     for remove, in zip(fastaremove):
-        subprocess.check_call(['rm','-r', remove])
+        subprocess.call(['rm','-r', remove])
     print ''
     print ''
     print ''
