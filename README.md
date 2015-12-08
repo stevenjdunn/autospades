@@ -1,6 +1,9 @@
 # autospades.py
 A simple script to automate SPAdes assemblies directly from MiSeq output files.
 
+Dependencies:
+SPAdes - http://bioinf.spbau.ru/spades
+
 Before use, transfer your gzipped fastq.gz files from the MiSeq to a single directory on your workstation.
 
 On execution, you will be prompted for the directory containing your files - use a full path (e.g. /users/me/Desktop/reads/). The script will unpack your reads, assemble each sample's genome, and if specified collect all of the resulting assemblies into a single folder. 
