@@ -26,15 +26,11 @@ for gz, in zip(gzip):
     print 'Beginning Assembly'
     print '#######################'
 r1files = list(glob.glob(os.path.join(directory,'*R1*.fastq')))
-r1files.sort()
 r2files = list(glob.glob(os.path.join(directory, '*R2*.fastq')))
-r2files.sort()
 yes = set(['yes','y','ye'])
 no = set(['no','n',''])
 rawname = [x.split(directory)[1].split('_')[0] for x in r1files]
-rawname.sort()
 subdirectories = [directory + x for x in rawname]
-subdirectories.sort()
 if careful in yes:
     for opt1, opt2, opt3, in zip(r1files, r2files,subdirectories):
         subprocess.call(['spades.py', '--careful', '--pe1-1', opt1, '--pe1-2', opt2, '-o', opt3])
