@@ -19,7 +19,12 @@ if not os.path.exists(outputpath):
 gzip = list(glob.glob(os.path.join(directory, '*.gz')))
 for gz, in zip(gzip):
     subprocess.check_call(['gunzip', gz])
-    subprocess.call(['rm', '*.gz'])
+    print ''
+    print '#######################'
+    print 'Archives expanded'
+    print ''
+    print 'Beginning Assembly'
+    print '#######################'
 r1files = list(glob.glob(os.path.join(directory,'*R1*.fastq')))
 r1files.sort()
 r2files = list(glob.glob(os.path.join(directory, '*R2*.fastq')))
@@ -29,6 +34,7 @@ no = set(['no','n',''])
 rawname = [x.split(directory)[1].split('_')[0] for x in r1files]
 rawname.sort()
 subdirectories = [directory + x for x in rawname]
+subdirectories.sort()
 if careful in yes:
     for opt1, opt2, opt3, in zip(r1files, r2files,subdirectories):
         subprocess.call(['spades.py', '--careful', '--pe1-1', opt1, '--pe1-2', opt2, '-o', opt3])
@@ -39,10 +45,6 @@ fastadirectories = [directory + x + '/scaffolds.fasta' for x in rawname]
 fastanames = [x + '.fasta' for x in rawname]
 fastaoutput = [outputpath + x for x in fastanames]
 fastaremove = [directory + x + '/' for x in rawname]
-print fastadirectories
-print fastanames
-print fastaoutput
-print fastaremove
 for var1, var2, in zip(fastadirectories, fastaoutput):
     subprocess.call(['cp', var1, var2])
 if choice in yes:
