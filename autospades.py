@@ -2,6 +2,8 @@
 import os
 import glob
 import subprocess
+print ''
+print ''
 print '######################'
 print 'Welcome to AutoSPAdes'
 print '######################'
