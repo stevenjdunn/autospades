@@ -16,6 +16,8 @@ print 'Do you want to remove assembly subdirectories after use?'
 choice = raw_input("Y/N: ").lower()
 print 'Use the careful flag?'
 careful = raw_input("Y/N: ").lower()
+print 'Remove .gz archives after use?'
+rmgz = raw_input("Y/N: ").lower()
 if not os.path.exists(outputpath):
     os.makedirs(outputpath)
 gzip = list(glob.glob(os.path.join(directory, '*.gz')))
@@ -51,6 +53,16 @@ if careful in no:
 
 for var1, var2, in zip(fastadirectories, fastaoutput):
     subprocess.call(['cp', var1, var2])
+if rmgz in yes:
+    for gz in zip(gzip):
+        subprocess.call(['rm', gz])
+    print ''
+    print ''
+    print '##################'
+    print '.gz files scrubbed'
+    print '##################'
+    print ''
+    print ''
 if choice in yes:
     for remove, in zip(subdirectories):
         subprocess.check_call(['rm','-r', remove])
@@ -76,7 +88,7 @@ if choice in yes:
     print '###############'
     print ''
     print ''
-    print 'Subdirectories and .gz files scrubbed.'
+    print 'Subdirectories scrubbed.'
     print ''
     print ''
     print 'Fasta files located in:',
@@ -113,9 +125,6 @@ if choice in no:
     print '###############'
     print 'Job Completed!'
     print '###############'
-    print ''
-    print ''
-    print '.gz files scrubbed'
     print ''
     print ''
     print 'Fasta subdirectories and FastQ reads located in: ',
