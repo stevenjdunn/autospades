@@ -127,26 +127,6 @@ if args.debug:
     sys.exit(1)
 
 # Check generated read lists contain >0 files, and are equal in length
-if len(r1files) == 0:
-    print ''
-    print ''
-    print colours.warning + colours.bold + "########"
-    print 'WARNING!'
-    print '########' + colours.term
-    print colours.warning + ''
-    print 'Could not detect any read files.'
-    print ''
-    print ''
-    print colours.warning + 'Please check the input directory to ensure all files are present and accounted for.'
-    print ''
-    print colours.bold + '#############'
-    print 'Script Failed'
-    print '#############' + colours.term
-    print ''
-    print 'Errors written to:' + invoked_from + '/' + 'autospades.log'
-    print ''
-    sys.exit(1)
-
 length = len(r1files)
 if len(r2files) != length:
     print ''
@@ -170,6 +150,26 @@ if len(r2files) != length:
     print ''
     print ''
     print colours.warning + 'Please check these lists and the input directory to ensure all files are present and accounted for.'
+    print ''
+    print colours.bold + '#############'
+    print 'Script Failed'
+    print '#############' + colours.term
+    print ''
+    print 'Errors written to:' + invoked_from + '/' + 'autospades.log'
+    print ''
+    sys.exit(1)
+    
+if len(r1files) == 0:
+    print ''
+    print ''
+    print colours.warning + colours.bold + "########"
+    print 'WARNING!'
+    print '########' + colours.term
+    print colours.warning + ''
+    print 'Could not detect any read files.'
+    print ''
+    print ''
+    print colours.warning + 'Please check the input directory to ensure all files are present and accounted for.'
     print ''
     print colours.bold + '#############'
     print 'Script Failed'
