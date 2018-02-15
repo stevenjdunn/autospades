@@ -137,7 +137,7 @@ if len(r2files) != length:
     print colours.warning + ''
     print 'Detected odd number of reads.'
     print ''
-    print 'Input directory should contained paired end read data, with filenames ending in _R1.fastq and _R2.fastq'
+    print 'Input directory should contain paired end read data, with filenames ending in _R1.fastq and _R2.fastq'
     print ''
     print 'The supplied input directory: ',
     print colours.term + directory
