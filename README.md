@@ -8,18 +8,19 @@ SPAdes - http://bioinf.spbau.ru/spades
 autospades.py -i <path to input directory containing fastq.gz's> -o <Path to output finished assemblies>
 
 # Options
-usage: autospades.py -i <INPUT> -o <OUTPUT> [-h] [-c] [-rm] [-bug]
+usage: autospades.py -i < path to input directory > -o < path to ouput directory > [-h] [-c] [-rm] [-bug]
 
 optional arguments:
-  -h, --help            show this help message and exit
-  -i <INPUT>, --input <INPUT>
-                        Path to directory containing raw Illumina reads.
-  -o <OUTPUT>, --output OUTPUT
-                        Path to output destination.
-  -c, --careful         Invoke SPAdes using the --careful flag
-  -rm, --remove         Removes assembly subdirectories after use.
-  -bug, --debug         Print all generated lists to stdout + log for
-                        troubleshooting, and exit.
+
+       -h, --help            show this help message and exit
+       -i <INPUT>, --input <INPUT>
+                            Path to directory containing raw Illumina reads.
+      -o <OUTPUT>, --output OUTPUT
+                            Path to output destination.
+      -c, --careful         Invoke SPAdes using the --careful flag
+      -rm, --remove         Removes assembly subdirectories after use.
+      -bug, --debug         Print all generated lists to stdout + log for
+                            troubleshooting, and exit.
   
 # Information
 The script assumes your filenames are in standard Illumina output format.
@@ -36,9 +37,11 @@ Probably due to the filenames. The script is written with the default Illumina n
 Lines 182-190 contain the call that invokes Spades. If you run with careful, edit line 185. Otherwise, it'll be line 190. All you need to do is add your flag in quotation marks, followed by a comma, followed by your optional variable in quotation marks, followed by a final comma.
 
 For example, if we wanted to specify how many threads SPAdes should use while running in careful mode, we'd change line 185 from:
-        subprocess.call(['spades.py', '--careful', '--pe1-1', opt1, '--pe1-2', opt2, '-o', opt3])
+       
+       subprocess.call(['spades.py', '--careful', '--pe1-1', opt1, '--pe1-2', opt2, '-o', opt3])
 to:
-        subprocess.call(['spades.py', '--careful', '-t', '8', '--pe1-1', opt1, '--pe1-2', opt2, '-o', opt3])
+      
+      subprocess.call(['spades.py', '--careful', '-t', '8', '--pe1-1', opt1, '--pe1-2', opt2, '-o', opt3])
 
 # Why did you choose to do X with Y in Z way?
 Because I am inexperienced and write code to fix my own problems before packaging in a slightly neater way. I make my scripts on the train during my commute with limited internet access, so I can only sporadically check StackOverflow answers for my limitless questions. I’m sure 90% of my code can be achieved in a neater and more pythonic way.
